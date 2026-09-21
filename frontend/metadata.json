@@ -1,0 +1,6 @@
+{
+  "name": "VerifyX-AI",
+  "description": "AI Document Tampering & Identity Risk Analyzer - Forensic document security and tamper detection platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

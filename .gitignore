@@ -1,0 +1,34 @@
+# Python virtual environment
+venv/
+
+# Environment/secrets
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Test/cache
+.pytest_cache/
+.coverage
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Tesseract installer
+*.exe

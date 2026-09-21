@@ -1,0 +1,318 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* Custom cyber scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(10, 15, 30, 0.6);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.3);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 189, 248, 0.6);
+  }
+}
+
+/* Cyber grid background */
+.cyber-grid-dark {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.cyber-grid-light {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+}
+
+/* Scanning laser animation */
+@keyframes scanLaser {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.8;
+  }
+}
+
+.animate-scan-laser {
+  animation: scanLaser 2.5s ease-in-out infinite alternate;
+}
+
+/* Pulse glow for cyber buttons */
+@keyframes cyberPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyberPulse 3s infinite;
+}
+
+/* Radar sweep */
+@keyframes radarSweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar-sweep {
+  animation: radarSweep 4s linear infinite;
+}
+
+/* Holographic shimmer animation */
+@keyframes hologramShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-hologram {
+  background: linear-gradient(90deg, rgba(6,182,212,0.1) 0%, rgba(6,182,212,0.4) 50%, rgba(6,182,212,0.1) 100%);
+  background-size: 200% 100%;
+  animation: hologramShimmer 3s infinite linear;
+}
+
+/* Sonar ripple pulse */
+@keyframes sonarRipple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+
+.animate-sonar {
+  animation: sonarRipple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+/* Gentle floating animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Laser sweep bar across documents */
+@keyframes laserSweepDown {
+  0% {
+    top: 0%;
+    opacity: 0.9;
+    box-shadow: 0 0 15px #06b6d4, 0 0 30px #06b6d4;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 25px #3b82f6, 0 0 45px #3b82f6;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.9;
+    box-shadow: 0 0 15px #06b6d4, 0 0 30px #06b6d4;
+  }
+}
+
+.animate-laser-sweep {
+  animation: laserSweepDown 3s ease-in-out infinite alternate;
+}
+
+/* 3D Cyber Horizon Grid Animation */
+@keyframes horizonGridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 50px;
+  }
+}
+
+.cyber-horizon-grid {
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.14) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(350px) rotateX(68deg);
+  transform-origin: 50% 100%;
+  animation: horizonGridMove 3s linear infinite;
+}
+
+.cyber-horizon-grid-light {
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(350px) rotateX(68deg);
+  transform-origin: 50% 100%;
+  animation: horizonGridMove 3s linear infinite;
+}
+
+/* Coordinate graph grid overlay for heatmaps */
+.forensic-coordinate-grid {
+  background-size: 20px 20px;
+  background-image:
+    linear-gradient(to right, rgba(6, 182, 212, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.18) 1px, transparent 1px);
+}
+
+.forensic-major-grid {
+  background-size: 100px 100px;
+  background-image:
+    linear-gradient(to right, rgba(6, 182, 212, 0.35) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.35) 1.5px, transparent 1.5px);
+}
+
+/* Drifting Forensic Document & Hologram Animations */
+@keyframes forensicDriftSlow {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(25px, -35px) rotate(1.5deg);
+  }
+  66% {
+    transform: translate(-20px, -60px) rotate(-1.5deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+.animate-forensic-drift {
+  animation: forensicDriftSlow 18s ease-in-out infinite;
+}
+
+@keyframes forensicDriftReverse {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  33% {
+    transform: translate(-30px, 30px) rotate(-2deg);
+  }
+  66% {
+    transform: translate(20px, 50px) rotate(1.5deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+.animate-forensic-drift-reverse {
+  animation: forensicDriftReverse 22s ease-in-out infinite;
+}
+
+/* Biometric Scanner Rings */
+@keyframes spinCounter {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-counter {
+  animation: spinCounter 14s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: radarSweep 20s linear infinite;
+}
+
+/* Cryptographic Data Rain Stream */
+@keyframes dataRain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.6;
+  }
+  85% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.animate-data-rain {
+  animation: dataRain 12s linear infinite;
+}
+
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.reduce-motion *, .reduce-motion ::before, .reduce-motion ::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
