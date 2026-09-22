@@ -134,10 +134,9 @@ def get_document_download_url(
             expires_in=settings.SIGNED_URL_EXPIRY_SECONDS,
         )
 
-    except HTTPException:
-        raise
-    except Exception as exc:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Document download failed.",
-        ) from exc
+  except Exception as exc:
+    print("DOWNLOAD ERROR:", repr(exc))
+    raise HTTPException(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        detail="Document download failed.",
+    ) from exc
